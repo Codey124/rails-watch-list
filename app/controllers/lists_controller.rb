@@ -1,11 +1,11 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show, :destroy]
   def index
     @lists = List.all
   end
 
   def show
-    @list = List.find(params[:id])
-    @bookmarks = @list.bookmarks
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -22,7 +22,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
 
     redirect_to lists_path
