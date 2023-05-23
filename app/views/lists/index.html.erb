@@ -1,9 +1,14 @@
 <div class="banner">
       <h1>WatchList Creator</h1>
-  <main>
-      <h2>Movie Lists</h2>
-    <div class="add-list">
-        <%= link_to 'Add a list', new_list_path %>
-    </div>
-  </main>
 </div>
+<main>
+    <h2>Movie Lists</h2>
+  <ul class="list-cards">
+    <% @lists.each do |list| %>
+        <%= link_to list.name, list_path(list) %>
+    <% end %>
+    <li class="add-list">
+      <%= link_to 'add list', new_list_path %>
+    </li>
+  </ul>
+</main>
